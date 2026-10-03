@@ -14,8 +14,8 @@
 cask "tarmac" do
   arch arm: "arm64"
 
-  version "0.13.1"
-  sha256 "266fce865e76b3cfee7fde8790711cd517f3cc3baae0f88045af748bc9e73cdc"
+  version "0.14.0"
+  sha256 "ffa6f65d7c3afc4426b54dfd51e79d48c4a3f5272e4f02aaa976b06035b2c0e8"
 
   url "https://github.com/pingeplin/tarmac/releases/download/v#{version}/Tarmac-#{version}.dmg"
   name "Tarmac"
@@ -31,11 +31,11 @@ cask "tarmac" do
   # Tahoe (26), not Sonoma: doc/HTML cards freeze their layout with CSS `zoom`,
   # which older field WebKit no-ops entirely — cards would render at 1/K size.
   # Standardized `zoom` ships ~Safari 26.4; 17.4 is a verified no-op and the
-  # range between them was never tested. See desktop/qa/one-x-display-crispness.md.
+  # range between them was never tested. See qa/one-x-display-crispness.md.
   depends_on macos: :tahoe
 
   app "Tarmac.app"
-  # The standalone universal CLI shipped at the .dmg root (NOT a path inside the
+  # The standalone CLI shipped at the .dmg root (NOT a path inside the
   # bundle — in-bundle symlink targets can need a shim). Symlinked onto PATH so
   # `tarmac open` works from any shell.
   binary "tarmac"
